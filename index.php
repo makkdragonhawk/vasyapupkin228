@@ -35,7 +35,7 @@ name="submit" value="Отправить" />
 </form>
 
 <?php
-$servername = "sqldatabaseserver4321.database.windows.net";
+$servername = "sqldatabaseserver4321.database.windows.net,1433";
 $username = "admin4321";
 $password = "";
 $dbname = "sqldatabase";
