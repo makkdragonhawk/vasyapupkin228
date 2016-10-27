@@ -33,14 +33,6 @@ name="email" id="email"/></br>
       <input type="submit" 
 name="submit" value="Отправить" />
 </form>
-    <?php
-include 'createtable.php';
-try {
-    $conn = query
-( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $conn->setAttribute
-( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-}
-?>
+
 </body>
 </html>
