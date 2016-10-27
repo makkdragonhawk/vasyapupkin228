@@ -1,3 +1,7 @@
+<?php
+    echo "<textarea name='mydata'>\n";
+    echo htmlspecialchars($data)."\n";
+
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -20,6 +24,7 @@ margin-bottom: 0; padding-bottom: 0; }
     td { padding: 0.25em 2em 0.25em 0em; 
 border: 0 none; }
 </style>
+include='createtable.php';
 </head>
   <body>
 <h1>Регистрация</h1>
@@ -34,33 +39,7 @@ name="email" id="email"/></br>
 name="submit" value="Отправить" />
 </form>
 
-<?php
-$servername = "sqldatabaseserver4321.database.windows.net,1433";
-$username = "username";
-$password = "password";
-$dbname = "sqldatabase";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('Mary', 'Moe', 'mary@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('Julie', 'Dooley', 'julie@example.com')";
-
-if (mysqli_multi_query($conn, $sql)) {
-    echo "New records created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-mysqli_close($conn);
-?>
 </body>
 </html>
+echo "</textarea>";
+?>
