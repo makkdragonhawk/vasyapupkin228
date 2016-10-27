@@ -37,7 +37,7 @@ name="submit" value="Отправить" />
 <?php
 $servername = "sqldatabaseserver4321.database.windows.net";
 $username = "admin4321";
-$password = "admin4321";
+$password = "";
 $dbname = "sqldatabase";
 
 // Create connection
