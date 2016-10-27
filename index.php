@@ -33,8 +33,6 @@ name="email" id="email"/></br>
       <input type="submit" 
 name="submit" value="Отправить" />
 </form>
-<?
-include='createtable.php';
-?>
+
 </body>
 </html>
