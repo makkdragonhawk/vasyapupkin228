@@ -1,7 +1,3 @@
-<?php
-    echo "<textarea name='mydata'>\n";
-    echo htmlspecialchars($data)."\n";
-
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -40,5 +36,3 @@ name="submit" value="Отправить" />
 
 </body>
 </html>
-echo "</textarea>";
-?>
