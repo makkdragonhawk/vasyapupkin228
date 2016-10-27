@@ -1,3 +1,4 @@
+<?php
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -33,7 +34,7 @@ name="email" id="email"/></br>
       <input type="submit" 
 name="submit" value="Отправить" />
 </form>
-<?
+    
 try {
     $conn = new PDO
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
@@ -43,6 +44,7 @@ try {
 catch(Exception $e){
     die(var_dump($e));
 }
-?>
+
 </body>
 </html>
+?>
