@@ -20,6 +20,8 @@ margin-bottom: 0; padding-bottom: 0; }
     td { padding: 0.25em 2em 0.25em 0em; 
 border: 0 none; }
 </style>
+    <?php include='createtable.php'
+    ?>
 </head>
   <body>
 <h1>Регистрация</h1>
