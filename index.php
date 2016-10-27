@@ -33,7 +33,7 @@ name="email" id="email"/></br>
       <input type="submit" 
 name="submit" value="Отправить" />
 </form>
-    <?
+    <?php
 include 'createtable.php';
 try {
     $conn = query
