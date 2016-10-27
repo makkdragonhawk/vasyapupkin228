@@ -37,7 +37,7 @@ name="submit" value="Отправить" />
 <?
 include 'createtable.php';
 try {
-    $conn = new PDO
+    $conn = query
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
