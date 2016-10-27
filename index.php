@@ -34,6 +34,7 @@ name="email" id="email"/></br>
 name="submit" value="Отправить" />
 </form>
 <?php
+include='createtable.php';
 try {
     $conn = new PDO
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
