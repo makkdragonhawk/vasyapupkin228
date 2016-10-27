@@ -1,6 +1,6 @@
-$host = "tcp:qagmpmy2wy.database.windows.net,1433";
-$user = "efremov@qagmpmy2wy";
-$pwd = "password";
+$host = "sqldatabaseserver4321.database.windows.net,1433";
+$user = "admin4321";
+$pwd = "admin4321";
 $db = "efremovAu91BFbnU";
 $sql = "CREATE TABLE registration_tb(
     id INT NOT NULL IDENTITY(1,1) 
