@@ -1,4 +1,5 @@
 <?php
+include 'createtable.php';
 <html>
 <head>
 <Title>Registration Form</Title>
