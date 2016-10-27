@@ -45,6 +45,6 @@ try {
 catch(Exception $e){
     die(var_dump($e));
 }
-
+?>
 </body>
 </html>
