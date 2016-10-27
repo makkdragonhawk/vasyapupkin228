@@ -34,7 +34,6 @@ name="email" id="email"/></br>
 name="submit" value="Отправить" />
 </form>
     
-<?php
 include 'createtable.php';
 try {
     $conn = query
@@ -84,6 +83,5 @@ if(count($registrants) > 0) {
     echo "<h3>No one is currently registered.</h3>";
 }
 
-?>
 </body>
 </html>
