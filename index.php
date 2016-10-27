@@ -1,5 +1,3 @@
-<?php
-include 'createtable.php';
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -36,6 +34,8 @@ name="email" id="email"/></br>
 name="submit" value="Отправить" />
 </form>
     
+<?php
+include 'createtable.php';
 try {
     $conn = new PDO
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
@@ -48,4 +48,3 @@ catch(Exception $e){
 
 </body>
 </html>
-?>
