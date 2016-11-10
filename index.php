@@ -2,7 +2,18 @@
 <head>
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
+<?PHP
+$server = "644030.ru";
+$sql="select * from dano";
+$UserName = 'sa';
+$password = '555';
+$database = 'tasty';
+
+$con = sqlsrv_connect("Driver={SQL Server}; Server=$server;Database=$database;",$username, $password);
+
+$res = sqlsrv_exec($con, $sql);
+?>
+    <style type="text/css">
     body { background-color:
  #fff; border-top: solid 10px #000;
  color: #333; font-size: .85em;
@@ -20,8 +31,7 @@ margin-bottom: 0; padding-bottom: 0; }
     td { padding: 0.25em 2em 0.25em 0em; 
 border: 0 none; }
 </style>
-    <?php include='createtable.php'
-    ?>
+
 </head>
   <body>
 <h1>Регистрация</h1>
