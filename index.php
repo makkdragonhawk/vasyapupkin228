@@ -3,7 +3,7 @@
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <?php
-    echo"1";
+    include"createtable.php";
     ?>
     <style type="text/css">
     body { background-color:
