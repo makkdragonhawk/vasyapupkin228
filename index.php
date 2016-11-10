@@ -3,11 +3,11 @@
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?PHP
-$server = "644030.ru";
+$server = "sqldatabaseserver4321.database.windows.net";
 $sql="select * from dano";
-$UserName = 'sa';
-$password = '555';
-$database = 'tasty';
+$UserName = 'admin4321';
+$password = 'admin4321';
+$database = 'sqldatabase';
 
 $con = sqlsrv_connect("Driver={SQL Server}; Server=$server;Database=$database;",$username, $password);
 
