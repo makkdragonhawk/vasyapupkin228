@@ -26,9 +26,15 @@ border: 0 none; }
 
 </head>
   <body>
+      <?php
+      if(!empty($_POST)) {
+      ?>
       <pre>
         <?php print_r($_POST);?>
       </pre>
+      <?php
+      }
+      ?>
 <h1>Регистрация</h1>
 <p>Заполните ваше имя и адрес электронной почты, затем нажмите кнопку Отправить, чтобы зарегистрироваться.</p>
 <form method="post" action="index.php" 
