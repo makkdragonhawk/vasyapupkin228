@@ -1,5 +1,4 @@
 <?php
-echo "1";
 
 $host = "tcp:sqldatabaseserver4321.database.windows.net,1433";
 $user = "admin4321";
