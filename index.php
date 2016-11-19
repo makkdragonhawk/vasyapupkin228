@@ -39,7 +39,13 @@ name="email" id="email"/></br>
 name="submit" value="Отправить" />
     </form>
 <?php
-   try {
+
+$host = "tcp:sqldatabaseserver4321.database.windows.net,1433";
+$user = "admin4321";
+$pwd = "admin4321";
+$db = "sqldatabase";
+// Connect to database.
+try {
     $conn = new PDO("sqlsrv:server = tcp:sqldatabaseserver4321.database.windows.net,1433; Database = sqldatabase", "admin4321", "admin4321");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -65,9 +71,9 @@ try {
 catch(Exception $e) {
     die(var_dump($e));
 }
-echo "<h3> Вы зарегистрированы! </h3>";
+echo "<h3>Your're registered!</h3>";
 }
-$sql_select = "SELECT * FROM registration_tbl";
+  $sql_select = "SELECT * FROM registration_tbl";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
@@ -84,8 +90,6 @@ if(count($registrants) > 0) {
     echo "</table>";
 } else {
     echo "<h3>No one is currently registered.</h3>";
-}
-
-      ?>
+}    ?>
 </body>
 </html>
