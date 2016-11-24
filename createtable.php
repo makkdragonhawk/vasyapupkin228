@@ -1,14 +1,12 @@
 <?php
 // DB connection info
-$host = "tcp:sqldatabaseserver4321.database.windows.net,1433";
-$user = "admin4321";
+$host = "localhost\sqlexpress";
+$user = "makkdragonhawk";
 $pwd = "makkDR3748";
-$db = "sqldatabase";
+$db = "sqldatabase2";
 try{
-    $conn = new PDO("sqlsrv:server = tcp:sqldatabaseserver4321.database.windows.net,1433; Database = sqldatabase", "admin4321", "admin4321");
-    $conn->setAttribute
-( PDO::ATTR_ERRMODE, 
-PDO::ERRMODE_EXCEPTION );
+    $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
     PRIMARY KEY(id),
