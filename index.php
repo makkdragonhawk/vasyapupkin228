@@ -2,9 +2,6 @@
 <head>
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <?php
-    include"createtable.php";
-    ?>
     <style type="text/css">
     body { background-color:
  #fff; border-top: solid 10px #000;
