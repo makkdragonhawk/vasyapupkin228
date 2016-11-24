@@ -42,11 +42,11 @@ name="submit" value="Отправить" />
 
 $host = "tcp:sqldatabaseserver4321.database.windows.net,1433";
 $user = "admin4321";
-$pwd = "admin4321";
+$pwd = "makkDR3748";
 $db = "sqldatabase";
 // Connect to database.
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqldatabaseserver4321.database.windows.net,1433; Database = sqldatabase", "admin4321", "admin4321");
+    $conn = new PDO("sqlsrv:server = tcp:sqldatabaseserver4321.database.windows.net,1433; Database = sqldatabase", "admin4321", "makkDR3748");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
