@@ -40,18 +40,18 @@ name="submit" value="Отправить" />
     </form>
 <?php
 
-$host = "tcp:sqldatabaseserver4321.database.windows.net,1433";
-$user = "admin4321";
+$host = "localhost\sqlexpress";
+$user = "makkdragonhawk";
 $pwd = "makkDR3748";
-$db = "sqldatabase";
+$db = "sqldatabase2";
 // Connect to database.
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqldatabaseserver4321.database.windows.net,1433; Database = sqldatabase", "admin4321", "makkDR3748");
-    $conn->setAttribute
-( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "{your_password_here}");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-catch(Exception $e){
-    die(var_dump($e));
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
 if(!empty($_POST)) {
 try {
