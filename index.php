@@ -19,11 +19,11 @@ $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Dat
 if(isset($_POST['submit']))
 {
     # Вытаскиваем из БД запись, у которой логин равняеться введенному
-    $query = mysqli_query($link,"SELECT user_id, user_password FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
+    $query = mysqli_query($link,"SELECT name, passw FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
     $data = mysqli_fetch_assoc($query);
 
     # Сравниваем пароли
-    if($data['user_password'] === md5(md5($_POST['password'])))
+    if($data['passw'] === md5(md5($_POST['passw'])))
     {
         # Генерируем случайное число и шифруем его
         $hash = md5(generateCode(10));
@@ -53,7 +53,7 @@ if(isset($_POST['submit']))
 ?>
 <form method="POST">
 Логин <input name="login" type="text"><br>
-Пароль <input name="password" type="password"><br>
+Пароль <input name="password" type="passw"><br>
 Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip"><br>
 <input name="submit" type="submit" value="Войти">
 </form>
