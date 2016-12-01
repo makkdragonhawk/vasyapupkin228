@@ -29,28 +29,9 @@ if(isset($_POST['submit']))
     $data = mysqli_fetch_assoc($query);
 
     # Сравниваем пароли
-    if($data['user_password'] === md5(md5($_POST['password'])))
+    if($data['user_password'] === ($_POST['password']))
     {
-        # Генерируем случайное число и шифруем его
-        $hash = md5(generateCode(10));
 
-        if(!@$_POST['not_attach_ip'])
-        {
-            # Если пользователя выбрал привязку к IP
-            # Переводим IP в строку
-            $insip = ", user_ip=INET_ATON('".$_SERVER['REMOTE_ADDR']."')";
-        }
-
-        # Записываем в БД новый хеш авторизации и IP
-        mysqli_query($link, "UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
-
-        # Ставим куки
-        setcookie("id", $data['user_id'], time()+60*60*24*30);
-        setcookie("hash", $hash, time()+60*60*24*30);
-
-        # Переадресовываем браузер на страницу проверки нашего скрипта
-        header("Location: check.php"); exit();
-    }
     else
     {
         print "Вы ввели неправильный логин/пароль";
