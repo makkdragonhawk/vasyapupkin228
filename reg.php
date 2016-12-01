@@ -61,7 +61,7 @@ try {
     // Insert data
     $sql_insert = 
 "INSERT INTO reg_table (name, email, date, passw) 
-                   VALUES (?,?,?)";
+                   VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
     $stmt->bindValue(2, $email);
@@ -87,6 +87,7 @@ if(count($registrants) > 0) {
         echo "<tr><td>".$registrant['name']."</td>";
         echo "<td>".$registrant['email']."</td>";
         echo "<td>".$registrant['date']."</td></tr>";
+        echo "<td>".$registrant['passw']."</td></tr>";
     }
     echo "</table>";
 } else {
