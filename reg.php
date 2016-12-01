@@ -60,12 +60,13 @@ try {
     $pass = $_POST['passw'];
     // Insert data
     $sql_insert = 
-"INSERT INTO registration_tbl (name, email, date) 
+"INSERT INTO reg_table (name, email, date, passw) 
                    VALUES (?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
     $stmt->bindValue(2, $email);
     $stmt->bindValue(3, $date);
+    $stmt->bindValue(4, $passw);
     $stmt->execute();
 }
 catch(Exception $e) {
