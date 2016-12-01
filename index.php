@@ -6,9 +6,9 @@ $pwd = "makkDR3748";
 $db = "sqldatabase2";
 try
 {
-    $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
+    {  $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+    }
     {$sql_select = "SELECT * FROM reg_table";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
