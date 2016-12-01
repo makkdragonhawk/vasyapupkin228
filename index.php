@@ -1,24 +1,58 @@
-<?php
- 
- if(isset($_POST["name"])){ $name = $_POST["name"]; }
- if(isset($_POST["l_passw"])){ $l_passw = $_POST["passw"]; }
- if(isset($_POST["l_send"])){ $l_send = $_POST["l_send"]; }
+<?
+// Страница авторизации
 
-  /* Проверяем если была нажата кнопка Войти. Если да, то сравниваем данные полученные из формы с тем логином и паролем который есть в БД и если они совпадаю то пользователь успешно авторизирован, иначе, выводим сообщение что неправильный логин или пароль. Если кнопка не была нажата, значит что пользователь зашел на страницу напрямую и поэтому выводим ему сообщение об этом. */
- if(isset($l_send)){
-  // делаем запрос к БД для выбора данных.
-  $query = " SELECT * FROM reg_table WHERE name = '$name' AND passw = '$passw'";
-  $result = mysql_query($query) or die ( "Error : ".mysql_error() ); 
+# Функция для генерации случайной строки
+function generateCode($length=6) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
+    $code = "";
+    $clen = strlen($chars) - 1;
+    while (strlen($code) < $length) {
+            $code .= $chars[mt_rand(0,$clen)];
+    }
+    return $code;
+}
 
-  /* Проверяем, если в базе нет пользователей с такими данными, то выводим сообщение об ошибке */
-  if(mysql_num_rows($result) < 1){
-   echo "Неправильный логин или пароль. Нажмите <a href='reg.php'>здесь</a> для того чтобы перейти на страницу авторизации";
-  }else{
+# Соединямся с БД
+$link=mysqli_connect("localhost", "mysql_user", "mysql_password", "testtable");
 
-   // Выводим сообщение
-   echo "Авторизация прошла успешно!";
-  }
- }else{
-  echo "Вы зашли на эту страницу напрямую, поэтому нет данных для обработки. Вы можете возвращаться на <a href='index.php'> главную страницу </a>";
- }
+if(isset($_POST['submit']))
+{
+    # Вытаскиваем из БД запись, у которой логин равняеться введенному
+    $query = mysqli_query($link,"SELECT user_id, user_password FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
+    $data = mysqli_fetch_assoc($query);
+
+    # Сравниваем пароли
+    if($data['user_password'] === md5(md5($_POST['password'])))
+    {
+        # Генерируем случайное число и шифруем его
+        $hash = md5(generateCode(10));
+
+        if(!@$_POST['not_attach_ip'])
+        {
+            # Если пользователя выбрал привязку к IP
+            # Переводим IP в строку
+            $insip = ", user_ip=INET_ATON('".$_SERVER['REMOTE_ADDR']."')";
+        }
+
+        # Записываем в БД новый хеш авторизации и IP
+        mysqli_query($link, "UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
+
+        # Ставим куки
+        setcookie("id", $data['user_id'], time()+60*60*24*30);
+        setcookie("hash", $hash, time()+60*60*24*30);
+
+        # Переадресовываем браузер на страницу проверки нашего скрипта
+        header("Location: check.php"); exit();
+    }
+    else
+    {
+        print "Вы ввели неправильный логин/пароль";
+    }
+}
 ?>
+<form method="POST">
+Логин <input name="login" type="text"><br>
+Пароль <input name="password" type="password"><br>
+Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip"><br>
+<input name="submit" type="submit" value="Войти">
+</form>
