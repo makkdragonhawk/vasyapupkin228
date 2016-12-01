@@ -40,8 +40,7 @@ if(isset($_POST['submit']))
 ?>
 <form method="POST">
 Логин <input name="login" type="text"><br>
-Пароль <input name="password" type="password"><br>
-Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip"><br>
+Пароль <input name="password" type="passw"><br>
 <input name="submit" type="submit" value="Войти">
 </form>
 <?
