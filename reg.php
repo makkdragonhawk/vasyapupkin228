@@ -33,7 +33,7 @@ name="name" id="name"/></br>
       Email <input type="text" 
 name="email" id="email"/></br>
       Пароль <input type="text" 
-name="password" id="password"/></br>
+name="password" id="passw"/></br>
     <input type="submit" 
 name="submit" value="Отправить" />
     </form>
@@ -57,7 +57,7 @@ try {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $date = date("Y-m-d");
-    $pass = $_POST['password'];
+    $pass = $_POST['passw'];
     // Insert data
     $sql_insert = 
 "INSERT INTO registration_tbl (name, email, date) 
