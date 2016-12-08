@@ -1,17 +1,6 @@
 <?
 // Страница авторизации
 
-# Функция для генерации случайной строки
-function generateCode($length=6) {
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
-    $code = "";
-    $clen = strlen($chars) - 1;
-    while (strlen($code) < $length) {
-            $code .= $chars[mt_rand(0,$clen)];
-    }
-    return $code;
-}
-
 # Соединямся с БД
 $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -23,13 +12,13 @@ if(isset($_POST['submit']))
     $data = mysqli_fetch_assoc($query);
 
     # Сравниваем пароли
-    if($data['passw'] === $_POST['passw'])
+    if($data['passw'] === $_POST['password'])
     {
      print "Вы ввели правильный логин/пароль";
     }
     else
     {
-        print "Вы ввели неправильный логин/пароль";
+     print "Вы ввели неправильный логин/пароль";
     }
 }
 ?>
