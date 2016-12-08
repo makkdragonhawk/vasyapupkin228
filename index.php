@@ -23,9 +23,9 @@ if(isset($_POST['submit']))
     $data = mysqli_fetch_assoc($query);
 
     # Сравниваем пароли
-    if($data['passw'] === ($_POST['passw']))
+    if($data['passw'] === $_POST['passw'])
     {
-     header("Location: index.php"); exit();
+     print "Вы ввели правильный логин/пароль";
     }
     else
     {
