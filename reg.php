@@ -26,7 +26,7 @@ border: 0 none; }
       
 <h1>Регистрация</h1>
 <p>Заполните ваше имя и адрес электронной почты, затем нажмите кнопку Отправить, чтобы зарегистрироваться.</p>
-<form method="post" action="index.php" 
+<form method="post" action="reg.php" 
 enctype="multipart/form-data" >
        Имя  <input type="text" 
 name="name" id="name"/></br>
