@@ -20,6 +20,7 @@ if(isset($_POST['submit']))
     }
     else
     {
+        echo "$query";
      print "Вы ввели неправильный логин/пароль";
     }
 }
