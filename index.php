@@ -14,6 +14,7 @@ if(isset($_POST['submit']))
     # Сравниваем пароли
     if($data['passw'] === $_POST['password'])
     {
+        echo "$query";
      print "Вы ввели правильный логин/пароль";
     }
     else
