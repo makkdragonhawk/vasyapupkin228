@@ -8,7 +8,7 @@ $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Dat
 if(isset($_POST['submit']))
 {
     # Вытаскиваем из БД запись, у которой логин равняеться введенному
-    $query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name===$_POST['login']");
+    $query = mysqli_query($conn,SELECT name, passw FROM reg_table WHERE name===$_POST["login"]);
     $data = mysqli_fetch_assoc($query);
 
     # Сравниваем пароли
