@@ -27,9 +27,9 @@ if(isset($_POST['submit']))
   //$data = mysql_fetch_array($query);
   
   $sql = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
-   $stmt = $conn->query($sql) or die("query err");
+   //$stmt = $conn->query($sql) or die("query err");
     //$res = $stmt->fetchAll() or die("res err"); 
-    $res=0;
+  /*  $res=0;
     if(count($res) > 0) {
         foreach($res as $r) {
          echo "<br>Логин ".$r['passw']."<br>";
@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
     } else {
         echo "no login";
     }
-  
+  */
 /*
 # Сравниваем пароли
 if($data['passw'] === $_POST['password'])
