@@ -20,6 +20,9 @@ else
 {
 print "Вы ввели неправильный логин/пароль";
 }
+  
+  echo "база ".$data['passw']."<br>";
+  echo "пост ".$_POST['password']."<br>";
 }
 ?>
 <form method="POST">
