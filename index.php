@@ -3,24 +3,23 @@
 
 # Соединямся с БД
 $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(isset($_POST['submit']))
 {
-    # Вытаскиваем из БД запись, у которой логин равняеться введенному
-  $query = mysql_query($conn,"SELECT name, passw FROM reg_table WHERE name='"mysql.real_escape_string($conn,$_POST['login'])."' LIMIT 1");
-    $data = mysql_fetch_assoc($query);
+# Вытаскиваем из БД запись, у которой логин равняеться введенному
+$query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1");
+$data = mysqli_fetch_assoc($query);
 
-
-    # Сравниваем пароли
-    if($data['passw'] === $_POST['password'])
-    {
-     print "Вы ввели правильный логин/пароль";
-    }
-    else
-    {
-     print "Вы ввели неправильный логин/пароль";
-    }
+# Сравниваем пароли
+if($data['passw'] === $_POST['password'])
+{
+print "Вы ввели правильный логин/пароль";
+}
+else
+{
+print "Вы ввели неправильный логин/пароль";
+}
 }
 ?>
 <form method="POST">
