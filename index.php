@@ -57,7 +57,6 @@ print "Вы ввели неправильный логин/пароль";
   echo "пост ".$_POST['password']."<br>";
   */
 }
- echo "<br>база ".$data['passw']."<br>";
 ?>
 <form method="POST">
 Логин <input name="login" type="text"><br>
