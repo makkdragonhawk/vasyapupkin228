@@ -5,13 +5,20 @@
 //$conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
 //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$conn = mysql_connect('tcp:sqldatabase2.database.windows.net,1433', 'makkdragonhawk', 'makkDR3748');
-//mysql_select_db('sqldatabase2', $conn) or die('Could not select database.');
-
-if (!$conn) {
-    die('Ошибка соединения: ' . mysql_error());
+$host = "localhost\sqlexpress";
+$user = "makkdragonhawk";
+$pwd = "makkDR3748";
+$db = "sqldatabase2";
+// Connect to database.
+try {
+    $conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-echo 'Успешно соединились';
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
+
 
 if(isset($_POST['submit']))
 {
@@ -21,10 +28,10 @@ if(isset($_POST['submit']))
   //$data = mysql_fetch_array($query);
   
   $sql = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
-   $q = $conn->query($sql) or die("failed!");
-   $r = mysqli_fetch_array($q);
-   echo "<br>база ".$r['passw']."<br>";
-
+   $stmt = $conn->query($sql);
+    $res = $stmt->fetchAll(); 
+   echo "<br>база ".$res['passw']."<br>";
+/*
 # Сравниваем пароли
 if($data['passw'] === $_POST['password'])
 {
@@ -37,6 +44,7 @@ print "Вы ввели неправильный логин/пароль";
   
   echo "<br>база ".$data['passw']."<br>";
   echo "пост ".$_POST['password']."<br>";
+  */
 }
 ?>
 <form method="POST">
