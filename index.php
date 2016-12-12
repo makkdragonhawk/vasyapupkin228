@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
   
   $sql = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
    $q = $conn->query($sql) or die("failed!");
-   $r = $q->fetch(PDO::FETCH_ASSOC);
+   $r = mysqli_fetch_array($q);
    echo "<br>база ".$r['passw']."<br>";
 
 # Сравниваем пароли
