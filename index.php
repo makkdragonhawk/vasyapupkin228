@@ -8,9 +8,15 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(isset($_POST['submit']))
 {
 # Вытаскиваем из БД запись, у которой логин равняеться введенному
-$query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1");
-$data = mysql_fetch_array($query);
-
+//$query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1");
+  $query = mysql_query($conn,"SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1");
+  $data = mysql_fetch_array($query);
+  
+  $sql = "SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1";
+   $q = $conn->query($sql) or die("failed!");
+while($r = $q->fetch(PDO::FETCH_ASSOC)){
+  echo $r['passw'];
+}
 # Сравниваем пароли
 if($data['passw'] === $_POST['password'])
 {
