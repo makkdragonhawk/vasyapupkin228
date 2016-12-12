@@ -5,10 +5,10 @@
 //$conn = new PDO("sqlsrv:server = tcp:sqldatabase2.database.windows.net,1433; Database = sqldatabase2", "makkdragonhawk", "makkDR3748");
 //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$link = mysql_connect('tcp:sqldatabase2.database.windows.net,1433', 'makkdragonhawk', 'makkDR3748');
-mysql_select_db('sqldatabase2', $link) or die('Could not select database.');
+$conn = mysql_connect('tcp:sqldatabase2.database.windows.net,1433', 'makkdragonhawk', 'makkDR3748');
+//mysql_select_db('sqldatabase2', $conn) or die('Could not select database.');
 
-if (!$link) {
+if (!$conn) {
     die('Ошибка соединения: ' . mysql_error());
 }
 echo 'Успешно соединились';
