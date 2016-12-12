@@ -28,8 +28,8 @@ if(isset($_POST['submit']))
   
   $sql = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
   $stmt = $conn->query($sql) or die("query err");
-    //$res = $stmt->fetchAll() or die("res err"); 
-  /*  $res=0;
+  $res = $stmt->setFetchMode(PDO::FETCH_ASSOC) or die("res err"); 
+ /*
     if(count($res) > 0) {
         foreach($res as $r) {
          echo "<br>Логин ".$r['passw']."<br>";
