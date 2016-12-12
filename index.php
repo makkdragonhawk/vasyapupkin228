@@ -31,7 +31,9 @@ if(isset($_POST['submit']))
    $stmt = $conn->query($sql) or mysql_error();
     $res = $stmt->fetchAll() or mysql_error(); 
     if(count($res) > 0) {
-         echo "<br>Логин ".$res['passw']."<br>";
+        foreach($res as $r) {
+         echo "<br>Логин ".$r['passw']."<br>";
+        }
     } else {
         echo "no login";
     }
