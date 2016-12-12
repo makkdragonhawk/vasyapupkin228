@@ -22,12 +22,12 @@ catch (PDOException $e) {
 }
 */
 
-//if(isset($_POST['submit']))
-//{
+if(isset($_POST['submit']))
+{
 # Вытаскиваем из БД запись, у которой логин равняеться введенному
 $query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name='".$_POST['login']."' LIMIT 1");
 $data = mysqli_fetch_array($query);
-  
+  print_r($data);
 /*  $sql = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
   $stmt = $conn->query($sql) or die("query err");
   $stmt->setFetchMode(PDO::FETCH_ASSOC) or die("res err"); 
@@ -56,7 +56,7 @@ print "Вы ввели неправильный логин/пароль";
   echo "<br>база ".$data['passw']."<br>";
   echo "пост ".$_POST['password']."<br>";
   */
-//}
+}
 ?>
 <form method="POST">
 Логин <input name="login" type="text"><br>
