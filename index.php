@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 {
 # Вытаскиваем из БД запись, у которой логин равняеться введенному
 $query = mysqli_query($conn,"SELECT name, passw FROM reg_table WHERE name='".mysqli_real_escape_string($conn,$_POST['login'])."' LIMIT 1");
-$data = mysqli_fetch_assoc($query);
+$data = mysql_fetch_array($query);
 
 # Сравниваем пароли
 if($data['passw'] === $_POST['password'])
@@ -21,7 +21,7 @@ else
 print "Вы ввели неправильный логин/пароль";
 }
   
-  echo "база ".$data['passw']."<br>";
+  echo "<br>база ".$data['passw']."<br>";
   echo "пост ".$_POST['password']."<br>";
 }
 ?>
