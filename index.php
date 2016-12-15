@@ -62,4 +62,5 @@ print "Вы ввели неправильный логин/пароль";
 Логин <input name="login" type="text"><br>
 Пароль <input name="password" type="password"><br>
 <input name="submit" type="submit" value="Войти">
+<a href=action.html><a/>
 </form>
