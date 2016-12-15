@@ -58,9 +58,16 @@ print "Вы ввели неправильный логин/пароль";
   */
 }
 ?>
+<Html>
+    <head>
+        <title>AZURE</title>
+        </head>
+    <Body>
 <form method="POST">
 Логин <input name="login" type="text"><br>
 Пароль <input name="password" type="password"><br>
 <input name="submit" type="submit" value="Войти">
-<a href=action.html><a/>
 </form>
+<a href=action.html>Задание формы<a/>
+    </body>
+        </html>
