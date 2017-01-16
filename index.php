@@ -68,6 +68,6 @@ print "Вы ввели неправильный логин/пароль";
 Пароль <input name="password" type="password"><br>
 <input name="submit" type="submit" value="Войти">
 </form>
-<a href=action.html>Задание формы<a/>
+
     </body>
         </html>
