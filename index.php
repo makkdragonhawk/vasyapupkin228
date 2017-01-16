@@ -16,7 +16,7 @@ catch (PDOException $e) {
 
 if(isset($_POST['submit']))
 {
-$sql_select = "SELECT name, passw FROM reg_table WHERE name=`".$_POST['login']."` LIMIT 1";
+$sql_select = "SELECT name, passw FROM reg_table WHERE name=".$_POST['login'].";
   $stmt = $conn->query($sql) or die("query err");
   $stmt->setFetchMode(PDO::FETCH_ASSOC) or die("res err"); 
 
